@@ -54,9 +54,10 @@ public class UserServiceImplTest {
         final User createUser = new User(1L, "John", "Doe", 26, singletonList(Privilege.CREATE));
         final User updateUser = new User(2L, "Greg", "Smith", 30, singletonList(Privilege.UPDATE));
         final User deleteUser = new User(3L, "Alex", "Smith", 13, singletonList(Privilege.DELETE));
+        final User deleteUser2 = new User(3L, "Alex", "Smith", 13, singletonList(Privilege.DELETE));
 
         final List<Privilege> distinctPrivileges =
-                userService.getAllDistinctPrivileges(asList(createUser, updateUser, deleteUser));
+                userService.getAllDistinctPrivileges(asList(createUser, updateUser, deleteUser, deleteUser2));
 
         assertThat(distinctPrivileges).containsExactlyInAnyOrder(Privilege.CREATE, Privilege.UPDATE, Privilege.DELETE);
     }
